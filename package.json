@@ -1,18 +1,18 @@
 {
 	"name": "typescript-project",
-	"version": "1.0.0",
-	"description": "",
+	"version": "0.0.0",
+	"description": "remember to update urls in this file",
 	"main": "index.js",
 	"scripts": {
-		"build": "npx tsc",
-		"watch": "npx tsc --watch"
+		"build": "tsc",
+		"watch": "tsc --watch"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/samualtnorman/typescript-project.git"
+		"url": "https://github.com/samualtnorman/typescript-project"
 	},
 	"author": "Samual Norman",
-	"license": "MIT",
+	"license": "GPL-2.0-or-later",
 	"bugs": {
 		"url": "https://github.com/samualtnorman/typescript-project/issues"
 	},
