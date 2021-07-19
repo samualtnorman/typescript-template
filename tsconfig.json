@@ -8,9 +8,7 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"declaration": true,
-		"outDir": ".",
-		"useUnknownInCatchVariables": true,
-		"exactOptionalPropertyTypes": true
+		"outDir": "."
 	},
 	"exclude": []
 }
