@@ -1,11 +1,11 @@
-name: Build
+name: Lint
 
 on:
   push:
   pull_request:
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,4 +18,4 @@ jobs:
         node-version: ">=14"
         cache: pnpm
     - run: pnpm install
-    - run: pnpm package
+    - run: pnpm lint
