@@ -3,10 +3,10 @@
 	"version": "0.0.0",
 	"description": "remember to update urls in this file",
 	"scripts": {
-		"lint": "eslint .; tsc",
+		"lint": "eslint .; tsc; tsc --project src",
 		"build": "rollup --config",
-		"dev": "rollup --config --watch",
-		"gen-types": "tsc --project src",
+		"dev": "pnpm build --watch",
+		"gen-types": "tsc --project src --noEmit false --emitDeclarationOnly",
 		"package": "rm -rf dist && pnpm build && pnpm gen-types && node scripts/build-package-json && cp LICENSE README.md index.cjs dist && if [ -d dist/bin ]; then chmod +x dist/bin/*; fi"
 	},
 	"repository": {
