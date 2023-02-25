@@ -5,9 +5,8 @@
 		"strict": true,
 		"useUnknownInCatchVariables": true,
 		"strictNullChecks": true,
-		"noEmit": true,
-		"declaration": true,
-		"outDir": "../dist"
+		"paths": { "/": [ "." ], "/*": [ "./*" ] },
+		"plugins": [ { "transform": "typescript-transform-paths", "afterDeclarations": true } ]
 	},
 	"extends": "..",
 	"include": [ "**/*" ]
