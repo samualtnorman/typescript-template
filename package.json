@@ -3,7 +3,6 @@
 	"version": "0.0.0",
 	"description": "remember to update urls in this file",
 	"scripts": {
-		"prepare": "ts-patch install -s",
 		"lint": "eslint .; tsc; tsc --project src",
 		"build": "rollup --config",
 		"dev": "pnpm build --watch",
