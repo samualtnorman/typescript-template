@@ -1,9 +1,11 @@
 import * as t from "@babel/types"
+import alias from "@rollup/plugin-alias"
 import { babel } from "@rollup/plugin-babel"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import terser from "@rollup/plugin-terser"
 import { findFiles } from "@samual/lib/findFiles"
 import MagicString from "magic-string"
+import * as Path from "path"
 import { relative as getRelativeFilePath } from "path"
 import packageConfig from "./package.json" assert { type: "json" }
 
@@ -90,7 +92,8 @@ export default findFiles(SourceFolder).then(foundFiles => /** @type {import("rol
 
 				return { code: magicString.toString(), map: magicString.generateMap({ hires: true }) }
 			}
-		}
+		},
+		alias({ entries: [ { find: /^\//, replacement: `${Path.resolve(SourceFolder)}/` } ] })
 	],
 	external:
 		source => externalDependencies.some(dependency => source == dependency || source.startsWith(`${dependency}/`)),

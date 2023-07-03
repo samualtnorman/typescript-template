@@ -14,7 +14,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"target": "ES2020",
 		"skipLibCheck": true,
-		"module": "ESNext"
+		"module": "ESNext",
+		"paths": { "/": [ "." ], "/*": [ "./*" ] },
+		"plugins": [ { "transform": "typescript-transform-paths", "afterDeclarations": true } ]
 	},
 	"include": [ "*", "scripts/*" ],
 	"exclude": [ "index.cjs" ]

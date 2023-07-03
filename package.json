@@ -6,8 +6,8 @@
 		"lint": "eslint .; tsc; tsc --project src",
 		"build": "rollup --config",
 		"dev": "pnpm build --watch",
-		"emit-declarations": "tsc --project src --declaration --emitDeclarationOnly --noEmit false --outDir dist",
-		"package": "rm -rf dist && pnpm build && pnpm emit-declarations && scripts/build-package-json.js && cp LICENSE README.md index.cjs dist && if [ -d dist/bin ]; then chmod +x dist/bin/*; fi",
+		"emit-declarations": "tspc --project src --declaration --emitDeclarationOnly --noEmit false --outDir dist",
+		"package": "rm -rf dist && pnpm build && pnpm emit-declarations && scripts/build-package-json.js && cp LICENSE README.md dist && if [ -d dist/bin ]; then chmod +x dist/bin/*; fi",
 		"update": "pnpm update --latest !@types/node && pnpm update @types/node"
 	},
 	"repository": {
@@ -20,15 +20,18 @@
 		"url": "https://github.com/samualtnorman/typescript-project/issues"
 	},
 	"homepage": "https://github.com/samualtnorman/typescript-project#readme",
+	"dependencies": {
+		"@samual/lib": "0.9.0-124f209"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.22.5",
 		"@babel/preset-env": "^7.22.5",
 		"@babel/preset-typescript": "^7.22.5",
 		"@babel/types": "^7.22.5",
+		"@rollup/plugin-alias": "^5.0.0",
 		"@rollup/plugin-babel": "^6.0.3",
 		"@rollup/plugin-node-resolve": "^15.1.0",
 		"@rollup/plugin-terser": "^0.4.3",
-		"@samual/lib": "^0.8.0",
 		"@types/node": "^16.18.38",
 		"@typescript-eslint/eslint-plugin": "^5.60.1",
 		"@typescript-eslint/parser": "^5.60.1",
@@ -40,7 +43,9 @@
 		"magic-string": "^0.30.0",
 		"rollup": "^3.26.0",
 		"semver": "^7.5.3",
-		"typescript": "^5.1.6"
+		"ts-patch": "^3.0.1",
+		"typescript": "^5.1.6",
+		"typescript-transform-paths": "^3.4.6"
 	},
 	"private": true,
 	"type": "module",
@@ -48,14 +53,7 @@
 		"node": ">=16"
 	},
 	"exports": {
-		".": {
-			"require": "./index.cjs",
-			"import": "./index.js"
-		},
 		"./*": "./*.js",
 		"./*.js": "./*.js"
-	},
-	"optionalDependencies": {
-		"deasync": "^0.1.28"
 	}
 }
