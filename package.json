@@ -21,31 +21,31 @@
 	},
 	"homepage": "https://github.com/samualtnorman/typescript-project#readme",
 	"devDependencies": {
-		"@babel/core": "^7.21.4",
-		"@babel/preset-env": "^7.21.4",
-		"@babel/preset-typescript": "^7.21.4",
-		"@babel/types": "^7.21.4",
+		"@babel/core": "^7.22.5",
+		"@babel/preset-env": "^7.22.5",
+		"@babel/preset-typescript": "^7.22.5",
+		"@babel/types": "^7.22.5",
 		"@rollup/plugin-babel": "^6.0.3",
-		"@rollup/plugin-node-resolve": "^15.0.2",
-		"@rollup/plugin-terser": "^0.4.1",
-		"@samual/lib": "^0.7.0",
-		"@types/node": "^14.18.42",
-		"@typescript-eslint/eslint-plugin": "^5.57.1",
-		"@typescript-eslint/parser": "^5.57.1",
-		"eslint": "^8.38.0",
+		"@rollup/plugin-node-resolve": "^15.1.0",
+		"@rollup/plugin-terser": "^0.4.3",
+		"@samual/lib": "^0.8.0",
+		"@types/node": "^16.18.38",
+		"@typescript-eslint/eslint-plugin": "^5.60.1",
+		"@typescript-eslint/parser": "^5.60.1",
+		"eslint": "^8.44.0",
 		"eslint-plugin-array-func": "^3.1.8",
 		"eslint-plugin-eslint-comments": "^3.2.0",
-		"eslint-plugin-regexp": "^1.14.0",
-		"eslint-plugin-unicorn": "^46.0.0",
+		"eslint-plugin-regexp": "^1.15.0",
+		"eslint-plugin-unicorn": "^47.0.0",
 		"magic-string": "^0.30.0",
-		"rollup": "^3.20.2",
-		"semver": "^7.3.8",
-		"typescript": "^5.0.4"
+		"rollup": "^3.26.0",
+		"semver": "^7.5.3",
+		"typescript": "^5.1.6"
 	},
 	"private": true,
 	"type": "module",
 	"engine": {
-		"node": ">=14"
+		"node": ">=16"
 	},
 	"exports": {
 		".": {
