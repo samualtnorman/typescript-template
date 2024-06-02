@@ -3,9 +3,9 @@
 	"version": "0.0.0",
 	"description": "remember to update urls in this file",
 	"keywords": [],
-	"homepage": "https://github.com/samualtnorman/typescript-project#readme",
+	"homepage": "https://github.com/samualtnorman/typescript-template#readme",
 	"bugs": {
-		"url": "https://github.com/samualtnorman/typescript-project/issues",
+		"url": "https://github.com/samualtnorman/typescript-template/issues",
 		"email": "me@samual.uk"
 	},
 	"license": "MIT",
