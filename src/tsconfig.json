@@ -1,12 +1,5 @@
 {
-	"compilerOptions": {
-		"exactOptionalPropertyTypes": true,
-		"noUncheckedIndexedAccess": true,
-		"strict": true,
-		"useUnknownInCatchVariables": true,
-		"strictNullChecks": true,
-		"paths": { "/": [ "." ], "/*": [ "./*" ] }
-	},
 	"extends": "..",
-	"include": [ "**/*" ]
+	"include": [ "**/*" ],
+	"compilerOptions": { "types": [ "node", "@total-typescript/ts-reset", "babel-plugin-here/env" ] }
 }
