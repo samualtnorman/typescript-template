@@ -1,9 +1,9 @@
 name: Test
-on: { push: null, pull_request: null }
+on: { push: , pull_request: }
 
 jobs:
   test:
-    strategy: { matrix: { node-version: [ ^18.20.3, ^20.14, ">=22.2" ] } }
+    strategy: { matrix: { node-version: [ ^18.20, ^20.10, ">=22" ] } }
     runs-on: ubuntu-latest
 
     steps:
@@ -13,6 +13,6 @@ jobs:
       uses: actions/setup-node@v4
       with: { node-version: "${{ matrix.node-version }}" }
 
-    - { name: Setup pnpm, uses: pnpm/action-setup@v3, with: { version: ^9.1.4, run_install: true } }
+    - { name: Setup pnpm, uses: pnpm/action-setup@v4, with: { version: ^9, run_install: true } }
     - run: scripts/package.sh
-    - run: scripts/lint.sh
+    - run: scripts/test.sh
