@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
 import packageJson from "../package.json" with { type: "json" }
-import { getExports } from "./lib/exports.js"
+import { getExports } from "./lib/exports.ts"
 
-/** @type {Record<string, string>} */ const ConvertToJsr = {
+const ConvertToJsr: Record<string, string> = {
 	"@samual/types": "@samual/types"
 }
 
@@ -19,5 +19,3 @@ writeFileSync(
 	"dist/jsr.json",
 	JSON.stringify({ name, version, license, exports: await getExports(`.d.ts`, `.js`), imports }, undefined, "\t")
 )
-
-process.exit()

@@ -1,4 +1,6 @@
-export const foo = `bar`
+import type { JsonValue } from "@samual/types"
+
+export const foo: JsonValue = `bar`
 
 if (import.meta.vitest) {
 	const { test, expect } = import.meta.vitest
