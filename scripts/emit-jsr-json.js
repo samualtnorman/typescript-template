@@ -1,9 +1,9 @@
-#!/usr/bin/env -S node --experimental-strip-types
+#!/usr/bin/env node
 import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
 import packageJson from "../package.json" with { type: "json" }
-import { getExports } from "./lib/exports.ts"
+import { getExports } from "./lib/exports.js"
 
-const ConvertToJsr: Record<string, string> = {
+/** @type {Record<string, string>} */ const ConvertToJsr = {
 	"@samual/types": "@samual/types"
 }
 
