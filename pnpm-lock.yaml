@@ -18,9 +18,6 @@ importers:
       '@rollup/plugin-babel':
         specifier: ^6.1.0
         version: 6.1.0(@babel/core@7.28.5)(rollup@4.53.3)
-      '@samual/lib':
-        specifier: ^0.13.0
-        version: 0.13.0
       '@samual/rolldown-config':
         specifier: jsr:0.0.1-5e79465
         version: '@jsr/samual__rolldown-config@0.0.1-5e79465(prettier@3.7.4)(rollup@4.53.3)'
