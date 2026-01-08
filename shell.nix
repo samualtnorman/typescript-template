@@ -4,8 +4,17 @@ let fetchNixpkgs =
 	{ rev, sha256 ? "" }: import (fetchFromGitHub { owner = "NixOS"; repo = "nixpkgs"; inherit rev sha256; }) {}; in
 
 let inherit (fetchNixpkgs {
-	rev = "8bb5646e0bed5dbd3ab08c7a7cc15b75ab4e1d0f"; # 25.11 2025/12/03
-	sha256 = "SqUuBFjhl/kpDiVaKLQBoD8TLD+/cTUzzgVFoaHrkqY=";
+	rev = "5912c1772a44e31bf1c63c0390b90501e5026886"; # unstable 2026/01/08
+	sha256 = "Mj3d3PfwltLmukFal5i3fFt27L6NiKXdBezC1EBuZs4=";
 }) nodejs_24 pnpm_10; in
 
-mkShellNoCC { packages = [ cacert git nodejs_24 (pnpm_10.override { nodejs = nodejs_24; }) ]; }
+mkShellNoCC {
+	packages = [
+		cacert git nodejs_24
+		(pnpm_10.override {
+			nodejs = nodejs_24;
+			version = "10.27.0";
+			hash = "sha256-08fD0S2H0XfjLwF0jVmU+yDNW+zxFnDuYFMMN0/+q7M=";
+		})
+	];
+}
