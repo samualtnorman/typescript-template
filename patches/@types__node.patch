@@ -1,0 +1,17 @@
+diff --git a/fs.d.ts b/fs.d.ts
+index f98453a53dad6e01f91b39890dfbb938a181604b..2f31c58ccbe184006b5dfe55dca6c9ed2b53ba48 100644
+--- a/fs.d.ts
++++ b/fs.d.ts
+@@ -244,7 +244,11 @@ declare module "fs" {
+          * The base path that this `fs.Dirent` object refers to.
+          * @since v20.1.0
+          */
+-        path: string;
++        path?: string;
++        /**
++         * The base path that this `fs.Dirent` object refers to.
++         */
++        parentPath?: string;
+     }
+     /**
+      * A class representing a directory stream.

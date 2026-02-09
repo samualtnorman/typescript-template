@@ -19,6 +19,7 @@
 		"@babel/plugin-syntax-typescript": "^7.27.1",
 		"@rollup/plugin-babel": "^6.1.0",
 		"@samual/rolldown-config": "jsr:0.0.1-c24c564",
+		"@sn/assert": "jsr:0.0.1-da0fbad",
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~20.10.8",
 		"@types/semver": "^7.7.1",

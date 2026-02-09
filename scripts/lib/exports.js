@@ -1,11 +1,9 @@
+import { expect } from "@sn/assert"
 import { readdir as readFolder } from "fs/promises"
 import Path from "path"
+/** @import { Dirent } from "fs" */
 
-/**
- * @arg {import("fs").Dirent} dirent
- * @return {string}
- */
-const getDirentParentPath = dirent => /** @type {any} */ (dirent).parentPath ?? dirent.path
+const getDirentParentPath = (/** @type {Dirent} */ dirent) => expect(dirent.parentPath ?? dirent.path)
 
 export const getExports = async (
 	/** @type {string} */ queryFileExtension,

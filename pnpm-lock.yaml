@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@types/node':
+    hash: af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d
+    path: patches/@types__node.patch
+
 importers:
 
   .:
@@ -21,12 +26,15 @@ importers:
       '@samual/rolldown-config':
         specifier: jsr:0.0.1-c24c564
         version: '@jsr/samual__rolldown-config@0.0.1-c24c564(@types/babel__core@7.20.5)(prettier@3.7.4)(rollup@4.55.1)'
+      '@sn/assert':
+        specifier: jsr:0.0.1-da0fbad
+        version: '@jsr/sn__assert@0.0.1-da0fbad'
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
       '@types/node':
         specifier: ~20.10.8
-        version: 20.10.8
+        version: 20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)
       '@types/semver':
         specifier: ^7.7.1
         version: 7.7.1
@@ -38,7 +46,7 @@ importers:
         version: 4.5.0
       knip:
         specifier: ^5.80.0
-        version: 5.80.0(@types/node@20.10.8)(typescript@5.9.3)
+        version: 5.80.0(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(typescript@5.9.3)
       rolldown:
         specifier: 1.0.0-beta.59
         version: 1.0.0-beta.59
@@ -50,7 +58,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.0.16
-        version: 4.0.16(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1)
+        version: 4.0.16(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1)
 
 packages:
 
@@ -758,6 +766,9 @@ packages:
 
   '@jsr/samual__types@0.0.2-23ffc7f':
     resolution: {integrity: sha512-R5J5yovA/JwAWcbH3DfuMpU1zPNApN+4Q69c1gyhBa9mkTfx7gFpY7pJTzsdO9uIrCLzmsABuM9Wg65jgYXttw==, tarball: https://npm.jsr.io/~/11/@jsr/samual__types/0.0.2-23ffc7f.tgz}
+
+  '@jsr/sn__assert@0.0.1-da0fbad':
+    resolution: {integrity: sha512-A45Ro/I/BVDUcZ6XdPvcRjg7Fk63tc29w01tutMcelwFShXGzxh17IeWxil9JwAQJ+GtLKelWZ+K9gG/yRb34w==, tarball: https://npm.jsr.io/~/11/@jsr/sn__assert/0.0.1-da0fbad.tgz}
 
   '@jsr/sn__assert@0.0.1-fc7f76d':
     resolution: {integrity: sha512-zyi9CyidAMCPKfrQikeG+np0Lfhw98A5FT49zMtXVcPW/oXvepU3X+7bEfvwWz9+X2B1KmvawwARf9rZTuCBBw==, tarball: https://npm.jsr.io/~/11/@jsr/sn__assert/0.0.1-fc7f76d.tgz}
@@ -2558,6 +2569,10 @@ snapshots:
 
   '@jsr/samual__types@0.0.2-23ffc7f': {}
 
+  '@jsr/sn__assert@0.0.1-da0fbad':
+    dependencies:
+      '@jsr/samual__types': 0.0.2-23ffc7f
+
   '@jsr/sn__assert@0.0.1-fc7f76d':
     dependencies:
       '@jsr/samual__types': 0.0.2-23ffc7f
@@ -2839,7 +2854,7 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/node@20.10.8':
+  '@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)':
     dependencies:
       undici-types: 5.26.5
 
@@ -2858,13 +2873,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.16(vite@7.3.1(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1))':
+  '@vitest/mocker@4.0.16(vite@7.3.1(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1))':
     dependencies:
       '@vitest/spy': 4.0.16
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.1(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1)
+      vite: 7.3.1(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1)
 
   '@vitest/pretty-format@4.0.16':
     dependencies:
@@ -3077,10 +3092,10 @@ snapshots:
 
   json5@2.2.3: {}
 
-  knip@5.80.0(@types/node@20.10.8)(typescript@5.9.3):
+  knip@5.80.0(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
-      '@types/node': 20.10.8
+      '@types/node': 20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)
       fast-glob: 3.3.3
       formatly: 0.3.0
       jiti: 2.6.1
@@ -3354,7 +3369,7 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  vite@7.3.1(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1):
+  vite@7.3.1(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3363,15 +3378,15 @@ snapshots:
       rollup: 4.55.1
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 20.10.8
+      '@types/node': 20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)
       fsevents: 2.3.3
       jiti: 2.6.1
       terser: 5.44.1
 
-  vitest@4.0.16(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1):
+  vitest@4.0.16(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1):
     dependencies:
       '@vitest/expect': 4.0.16
-      '@vitest/mocker': 4.0.16(vite@7.3.1(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1))
+      '@vitest/mocker': 4.0.16(vite@7.3.1(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1))
       '@vitest/pretty-format': 4.0.16
       '@vitest/runner': 4.0.16
       '@vitest/snapshot': 4.0.16
@@ -3388,10 +3403,10 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.3.1(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1)
+      vite: 7.3.1(@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d))(jiti@2.6.1)(terser@5.44.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 20.10.8
+      '@types/node': 20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)
     transitivePeerDependencies:
       - jiti
       - less
