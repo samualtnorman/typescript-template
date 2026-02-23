@@ -3,7 +3,6 @@
 	"include": [ "**/*" ],
 	"compilerOptions": {
 		"declaration": true,
-		"outDir": "../dist",
 		"types": [ "node", "@total-typescript/ts-reset", "vitest/importMeta", "babel-plugin-here/env" ],
 		"isolatedDeclarations": true,
 		"checkJs": false

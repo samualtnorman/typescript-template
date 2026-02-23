@@ -26,6 +26,7 @@
 		"babel-plugin-here": "^1.0.2",
 		"eta": "^4.5.1",
 		"knip": "^5.83.1",
+		"oxc-transform": "^0.115.0",
 		"rolldown": "1.0.0-rc.3",
 		"semver": "^7.7.4",
 		"typescript": "^5.9.3",
