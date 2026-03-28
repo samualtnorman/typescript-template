@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { expect } from "@sn/assert"
+import { expect } from "@samual/assert"
 import { readdirSync as readFolderSync } from "fs"
 import { mkdir as makeFolder, readFile, writeFile } from "fs/promises"
 import { isolatedDeclaration } from "oxc-transform"

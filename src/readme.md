@@ -1,7 +1,7 @@
 <%
 const { readFileSync } = await import("fs")
 const packageJson = JSON.parse(readFileSync("./package.json", { encoding: "utf8" }))
-const JsrPackageName = `@sn/${packageJson.name}`
+const JsrPackageName = `@samual/${packageJson.name}`
 const PackageName = process.env.JSR ? JsrPackageName : packageJson.name
 %>
 # Typescript Template

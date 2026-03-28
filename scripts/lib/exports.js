@@ -1,4 +1,4 @@
-import { expect } from "@sn/assert"
+import { expect } from "@samual/assert"
 import { readdir as readFolder } from "fs/promises"
 import Path from "path"
 /** @import { Dirent } from "fs" */
