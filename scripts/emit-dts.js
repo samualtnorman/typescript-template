@@ -1,17 +1,14 @@
 #!/usr/bin/env node
-import { expect } from "@samual/assert"
 import { readdirSync as readFolderSync } from "fs"
 import { mkdir as makeFolder, readFile, writeFile } from "fs/promises"
 import { isolatedDeclaration } from "oxc-transform"
 import Path from "path"
-/** @import { Dirent } from "fs" */
+import { getDirentParentPath } from "./common.js"
 
 const IN_PATH = "src"
 const OUT_PATH = "dist"
 
 const BinPath = Path.join(IN_PATH, "bin") + Path.sep
-
-const getDirentParentPath = (/** @type {Dirent} */ dirent) => expect(dirent.parentPath ?? dirent.path)
 
 const entries = readFolderSync(IN_PATH, { withFileTypes: true, recursive: true })
 	.filter(file => file.isFile())

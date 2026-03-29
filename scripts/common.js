@@ -1,9 +1,18 @@
-import { expect } from "@samual/assert"
+import { expect, expectTruthy } from "@samual/assert"
 import { readdir as readFolder } from "fs/promises"
 import Path from "path"
+import * as v from "valibot"
+import packageJson_ from "../package.json" with { type: "json" }
 /** @import { Dirent } from "fs" */
 
-const getDirentParentPath = (/** @type {Dirent} */ dirent) => expect(dirent.parentPath ?? dirent.path)
+if (!process.env.FULL_ERROR) {
+	process.on("uncaughtException", error => {
+		console.error(error.message)
+		process.exit(1)
+	})
+}
+
+export const getDirentParentPath = (/** @type {Dirent} */ dirent) => expect(dirent.parentPath ?? dirent.path)
 
 export const getExports = async (
 	/** @type {string} */ queryFileExtension,
@@ -23,3 +32,15 @@ export const getExports = async (
 			})
 	)
 })
+
+export const getPackageJson = () => v.parse(v.looseObject({
+	private: v.optional(v.boolean()),
+	name: v.string(),
+	version: v.string(),
+	license: v.string(),
+	engines: v.record(v.string(), v.string()),
+	dependencies: v.optional(v.record(v.string(), v.string())),
+	devDependencies: v.optional(v.record(v.string(), v.string())),
+}), packageJson_)
+
+export const env = (/** @type {string} */ name) => expectTruthy(process.env[name], `Missing environment variable: ${name}`)

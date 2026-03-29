@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
-import packageJson from "../package.json" with { type: "json" }
-import { getExports } from "./lib/exports.js"
+import { env, getExports, getPackageJson } from "./common.js"
 
 /** @type {Record<string, string>} */ const ConvertToJsr = {
 	"@samual/types": "@samual/types"
 }
 
-const { name, version, license, dependencies } = packageJson
-
 makeDirectorySync("dist", { recursive: true })
 
-const imports = Object.fromEntries(Object.entries(dependencies).map(
+const name = env("JSR_NAME")
+const exports = await getExports(`.d.ts`, `.js`)
+const { version, license, dependencies } = getPackageJson()
+
+const imports = dependencies && Object.fromEntries(Object.entries(dependencies).map(
 	([ name, version ],) => [ name, `${name in ConvertToJsr ? `jsr:${ConvertToJsr[name]}` : `npm:${name}`}@${version}` ]
 ))
 
-writeFileSync(
-	"dist/jsr.json",
-	JSON.stringify({ name, version, license, exports: await getExports(`.d.ts`, `.js`), imports }, undefined, "\t")
-)
+writeFileSync("dist/jsr.json", JSON.stringify({ name, version, license, exports, imports }, undefined, "\t"))
+process.exit()
