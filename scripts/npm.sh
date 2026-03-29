@@ -6,4 +6,4 @@ rm -rf dist
 scripts/emit-dts.js
 scripts/emit-package-json.js
 cp LICENSE dist
-scripts/eta.js < src/readme.md > dist/README.md
+scripts/eta.js < src/README.md > dist/README.md
