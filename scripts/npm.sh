@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -xeu
 rm -rf dist
 ./rolldown.config.js
 scripts/emit-dts.js

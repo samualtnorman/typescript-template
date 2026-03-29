@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -xeu
 rm dist --recursive --force
 JSR=1 ./rolldown.config.js
 scripts/emit-dts.js
