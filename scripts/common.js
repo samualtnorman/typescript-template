@@ -1,9 +1,8 @@
-import { expect, expectTruthy } from "@samual/assert"
+import { expectTruthy } from "@samual/assert"
 import { readdir as readFolder } from "fs/promises"
 import Path from "path"
 import * as v from "valibot"
 import packageJson_ from "../package.json" with { type: "json" }
-/** @import { Dirent } from "fs" */
 
 if (!process.env.FULL_ERROR) {
 	process.on("uncaughtException", error => {
@@ -11,8 +10,6 @@ if (!process.env.FULL_ERROR) {
 		process.exit(1)
 	})
 }
-
-export const getDirentParentPath = (/** @type {Dirent} */ dirent) => expect(dirent.parentPath ?? dirent.path)
 
 export const getExports = async (
 	/** @type {string} */ queryFileExtension,
@@ -22,7 +19,7 @@ export const getExports = async (
 	...Object.fromEntries(
 		(await readFolder(`dist`, { withFileTypes: true, recursive: true }))
 			.filter(dirent => dirent.isFile())
-			.map(dirent => Path.join(getDirentParentPath(dirent), dirent.name))
+			.map(dirent => Path.join(dirent.parentPath, dirent.name))
 			.filter(path => path != `dist/default${queryFileExtension}` && path != `dist/internal${queryFileExtension}` && path.endsWith(queryFileExtension))
 			.sort()
 			.map(path => {

@@ -21,7 +21,7 @@
 		"@samual/assert": "^0.0.1",
 		"@samual/rolldown-config": "0.0.1-fcd4cc3",
 		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/node": "~20.10.8",
+		"@types/node": "~22.12.0",
 		"@types/semver": "^7.7.1",
 		"babel-plugin-here": "1.0.3-9f222fd",
 		"eta": "^4.5.1",

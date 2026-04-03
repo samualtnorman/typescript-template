@@ -3,7 +3,6 @@ import { readdirSync as readFolderSync } from "fs"
 import { mkdir as makeFolder, readFile, writeFile } from "fs/promises"
 import { isolatedDeclaration } from "oxc-transform"
 import Path from "path"
-import { getDirentParentPath } from "./common.js"
 
 const IN_PATH = "src"
 const OUT_PATH = "dist"
@@ -12,7 +11,7 @@ const BinPath = Path.join(IN_PATH, "bin") + Path.sep
 
 const entries = readFolderSync(IN_PATH, { withFileTypes: true, recursive: true })
 	.filter(file => file.isFile())
-	.map(file => Path.join(getDirentParentPath(file), file.name))
+	.map(file => Path.join(file.parentPath, file.name))
 	.filter(file => !file.startsWith(BinPath) && file.endsWith(".ts") && !file.endsWith(".d.ts"))
 
 await Promise.all(entries.map(async entry => {

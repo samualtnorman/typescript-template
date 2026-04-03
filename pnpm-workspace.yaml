@@ -1,2 +1,0 @@
-patchedDependencies:
-  '@types/node': patches/@types__node.patch
